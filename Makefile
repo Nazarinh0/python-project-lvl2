@@ -18,5 +18,6 @@ publish:
 
 package-install:
 	python3.10 -m pip install --user dist/*.whl
+
 test-coverage:
 	poetry run pytest --cov=gendiff --cov-report=xml
