@@ -8,3 +8,5 @@ dist/
 /venv
 .idea
 /diff_data
+.coverage
+coverage.xml
