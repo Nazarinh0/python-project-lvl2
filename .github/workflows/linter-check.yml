@@ -14,15 +14,12 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-python@v2
-      with:
-        python-version: 3.10
-    - run: |
+      - uses: actions/checkout@master
+      - run: |
           pip install poetry
           make install
-    - uses: paambaati/codeclimate-action@v2.7.5
-      env:
-        CC_TEST_REPORTER_ID: 3f39497044781e7e683e61f49d093a13c6215642d769d3169ff201dbd1079af7
-      with:
-        coverageCommand: make test-coverage
+      - uses: paambaati/codeclimate-action@v2.7.5
+        env:
+          CC_TEST_REPORTER_ID: 3f39497044781e7e683e61f49d093a13c6215642d769d3169ff201dbd1079af7
+        with:
+          coverageCommand: make test-coverage
