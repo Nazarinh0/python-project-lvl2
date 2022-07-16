@@ -1,6 +1,7 @@
 import json
 import os
 
+
 def generate_diff(file1, file2):
     first, second = read_file(file1), read_file(file2)
     diff = {}
