@@ -1,4 +1,4 @@
-name: Python CI
+name: linter-check
 
 on:
   push:
