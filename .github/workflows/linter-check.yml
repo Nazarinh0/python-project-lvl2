@@ -11,6 +11,8 @@ jobs:
         run: make install
       - name: run linter
         run:  make lint
+      - name: Run tests
+        run: make test
       - name: Publish code coverage stat
       - uses: paambaati/codeclimate-action@v2.7.5
         env:
