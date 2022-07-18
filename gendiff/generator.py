@@ -1,6 +1,5 @@
-import json
 import os
-
+from gendiff.parser import parser
 
 def generate_diff(file1, file2):
     first, second = read_file(file1), read_file(file2)
@@ -30,14 +29,6 @@ def read_file(file):
         file_type = os.path.splitext(file)[-1]
         file_data = source.read()
         return parser(file_data, file_type)
-
-
-def parser(file_data, file_type):
-    """Parse input data into .json format."""
-    mapping = {
-        '.json': json.loads,
-    }
-    return mapping[file_type](file_data)
 
 
 def print_diff(diff_data):
