@@ -9,7 +9,7 @@ def test_flat_json():
               '  host': 'hexlet.io',
               '- timeout': 50,
               '+ timeout': 20,
-              '+ proxy': '123.234.53.22',
+              '- proxy': '123.234.53.22',
               '+ follow': False,
               '+ verbose': True
     }
