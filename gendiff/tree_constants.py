@@ -1,0 +1,8 @@
+INDENT = '  '
+ADDED = '+'
+REMOVED = '-'
+CHANGED = 'changed'
+UNCHANGED = ' '
+NESTED = 'nested'
+SIMPLE = 'simple'
+COMPLEX = 'complex'
