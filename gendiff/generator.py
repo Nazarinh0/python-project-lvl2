@@ -13,7 +13,7 @@ def generate_diff(file1, file2):
                 diff['- {}'.format(key)] = first[key]
                 diff['+ {}'.format(key)] = second[key]
         else:
-            diff['+ {}'.format(key)] = first[key]
+            diff['- {}'.format(key)] = first[key]
 
     for key in second:
         if key not in first:
