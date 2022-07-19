@@ -7,34 +7,34 @@ def build_diff(before, after):
 
 
 def generate_node(key, before, after):
-    before = before.get(key)
-    after = after.get(key)
+    before_value = before.get(key)
+    after_value = after.get(key)
 
-    if before is None:
+    if before_value is None:
         node = {
             'type': ADDED,
-            'value': _get(after),
+            'value': _get(after_value),
         }
-    elif after is None:
+    elif after_value is None:
         node = {
             'type': REMOVED,
-            'value': _get(before),
+            'value': _get(before_value),
         }
-    elif before == after:
-        node = {
-            'type': UNCHANGED,
-            'value': _get(after),
-        }
-    elif before != after:
-        node = {
-            'type': CHANGED,
-            'old_value': _get(before),
-            'new_value': _get(after),
-        }
-    elif isinstance(before, dict) and isinstance(after, dict):
+    elif isinstance(before_value, dict) and isinstance(after_value, dict):
         node = {
             'type': NESTED,
-            'value': build_diff(before, after),
+            'value': build_diff(before_value, after_value),
+        }
+    elif before_value == after_value:
+        node = {
+            'type': UNCHANGED,
+            'value': _get(after_value),
+        }
+    elif before_value != after_value:
+        node = {
+            'type': CHANGED,
+            'old_value': _get(before_value),
+            'new_value': _get(after_value),
         }
     return node
 
