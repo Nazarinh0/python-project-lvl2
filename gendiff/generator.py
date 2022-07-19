@@ -12,6 +12,3 @@ def generate_diff(file1, file2, output_format):
     if not formatter:
         return 'Unsupported formatter'
     return formatter(diff)
-
-
-

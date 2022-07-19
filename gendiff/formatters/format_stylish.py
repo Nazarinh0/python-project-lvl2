@@ -1,4 +1,5 @@
-from gendiff.tree_constants import ADDED, CHANGED, INDENT, NESTED, REMOVED, UNCHANGED
+from gendiff.tree_constants import (
+    ADDED, CHANGED, INDENT, NESTED, REMOVED, UNCHANGED)
 
 
 def stylish(diff, depth=1):
