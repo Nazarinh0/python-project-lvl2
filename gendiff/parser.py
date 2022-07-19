@@ -2,6 +2,7 @@ import json
 import yaml
 import os
 
+
 def parser(file_data, file_type):
     """Parse input data into .json format."""
     mapping = {
