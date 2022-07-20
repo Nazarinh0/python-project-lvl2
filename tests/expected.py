@@ -15,7 +15,7 @@ NESTED_RESULT = '''{
       - setting3: true
       + setting4: blah blah
       + setting5: {
-            key5:value5
+            key5: value5
         }
         setting6: {
             doge: {
@@ -31,17 +31,25 @@ NESTED_RESULT = '''{
       - baz: bas
         foo: bar
       + nest: str
-      - nest: {'key': 'value'}
+      - nest: {
+            key: value
+        }
     }
   - group2: {
-        abc:12345
+        abc: 12345
     }
-        deep:{'id': 45}
+        deep: {
+              id: 45
+          }
     }
   + group3: {
-        deep:{'id': {'number': 45}}
+        deep: {
+              id: {
+                    number: 45
+                }
+          }
     }
-        fee:100500
+        fee: 100500
     }
 }'''
 

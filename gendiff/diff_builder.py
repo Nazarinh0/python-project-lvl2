@@ -36,6 +36,7 @@ def generate_node(key, before, after):
             'old_value': _get(before_value),
             'new_value': _get(after_value),
         }
+    print(node)
     return node
 
 
