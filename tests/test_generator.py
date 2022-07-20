@@ -1,5 +1,3 @@
-import json
-
 from gendiff import generate_diff
 import tests.expected as expected
 
