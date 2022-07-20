@@ -1,5 +1,5 @@
 from gendiff.tree_constants import (
-    ADDED, CHANGED, INDENT, NESTED, REMOVED, UNCHANGED, COMPLEX)
+    ADDED, CHANGED, NESTED, REMOVED, UNCHANGED, COMPLEX)
 
 ADDED_TEXT = "Property '{0}' was added with value: '{1}'"
 REMOVED_TEXT = "Property '{0}' was removed"
@@ -18,7 +18,7 @@ def plain(diff, parent=''):
 
         if node_type == ADDED:
             plain_string = ADDED_TEXT.format(property_value, get_value(node_value))
-        elif node_type == REMOVED_TEXT:
+        elif node_type == REMOVED:
             plain_string = REMOVED_TEXT.format(property_value)
         elif node_type == NESTED:
             plain_string = plain(node_value.get('value'), property_value)
@@ -30,7 +30,6 @@ def plain(diff, parent=''):
             )
         elif node_type == UNCHANGED:
             continue
-
         result.append(plain_string)
     return '\n'.join(result)
 
