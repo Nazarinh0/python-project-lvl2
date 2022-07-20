@@ -17,7 +17,10 @@ def plain(diff, parent=''):
         node_type = node_value.get('type')
 
         if node_type == ADDED:
-            plain_string = ADDED_TEXT.format(property_value, get_value(node_value))
+            plain_string = ADDED_TEXT.format(
+                property_value,
+                get_value(node_value)
+            )
         elif node_type == REMOVED:
             plain_string = REMOVED_TEXT.format(property_value)
         elif node_type == NESTED:
