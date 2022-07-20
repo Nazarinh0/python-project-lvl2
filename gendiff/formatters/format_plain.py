@@ -3,7 +3,7 @@ from gendiff.tree_constants import (
 
 ADDED_TEXT = "Property '{0}' was added with value: '{1}'"
 REMOVED_TEXT = "Property '{0}' was removed"
-CHANGED_TEXT = "Property '{0}' was changed. From '{1}' to '{2}'"
+CHANGED_TEXT = "Property '{0}' was updated. From '{1}' to '{2}'"
 
 
 def plain(diff, parent=''):
@@ -23,13 +23,14 @@ def plain(diff, parent=''):
             )
         elif node_type == REMOVED:
             plain_string = REMOVED_TEXT.format(property_value)
-        elif node_type == NESTED:
+
+        if node_type == NESTED:
             plain_string = plain(node_value.get('value'), property_value)
         elif node_type == CHANGED:
             plain_string = CHANGED_TEXT.format(
                 property_value,
-                node_value.get('old_value'),
-                node_value.get('new_value')
+                get_changed_old(node_value),
+                get_changed_new(node_value),
             )
         elif node_type == UNCHANGED:
             continue
@@ -45,6 +46,19 @@ def get_property(parent, property_name):
 
 def get_value(node):
     value = node.get('value')
+    if isinstance(value, dict):
+        return COMPLEX
+    return str(value)
+
+def get_changed_old(node):
+    value = node.get('old_value')
+    if isinstance(value, dict):
+        return COMPLEX
+    return str(value)
+
+
+def get_changed_new(node):
+    value = node.get('new_value')
     if isinstance(value, dict):
         return COMPLEX
     return str(value)

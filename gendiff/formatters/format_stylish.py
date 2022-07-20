@@ -16,8 +16,8 @@ def stylish(diff, depth=1):
             ])
         elif item_type == CHANGED:
             result.extend([
-                f'{indent}{ADDED} {node_key}: {_get_value(node_value.get("new_value"), depth)}',
                 f'{indent}{REMOVED} {node_key}: {_get_value(node_value.get("old_value"), depth)}',
+                f'{indent}{ADDED} {node_key}: {_get_value(node_value.get("new_value"), depth)}',
             ])
         else:
             result.append('{indent}{state} {key}: {value}'.format(

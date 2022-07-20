@@ -10,15 +10,15 @@ def generate_node(key, before, after):
     before_value = before.get(key)
     after_value = after.get(key)
 
-    if before_value is None:
-        node = {
-            'type': ADDED,
-            'value': _get(after_value),
-        }
-    elif after_value is None:
+    if key not in after:
         node = {
             'type': REMOVED,
             'value': _get(before_value),
+        }
+    elif key not in before:
+        node = {
+            'type': ADDED,
+            'value': _get(after_value),
         }
     elif isinstance(before_value, dict) and isinstance(after_value, dict):
         node = {
@@ -36,7 +36,6 @@ def generate_node(key, before, after):
             'old_value': _get(before_value),
             'new_value': _get(after_value),
         }
-    print(node)
     return node
 
 
@@ -45,4 +44,6 @@ def _get(value):
         return 'true'
     elif value is False:
         return 'false'
+    elif value is None:
+        return 'null'
     return value
