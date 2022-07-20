@@ -41,7 +41,7 @@ def _render_array(items, depth):
     result = ['{']
     for key, value in items.items():
         result.extend([
-            f'{INDENT * (depth + 3)}{key}: {_get_value(value,depth + 3)}',
+            f'{INDENT * (depth + 3)}{key}: {_get_value(value, depth + 2)}',
             f'{INDENT * (depth + 1)}}}',
         ])
     return '\n'.join(result)
