@@ -1,3 +1,5 @@
+import json
+
 from gendiff.tree_constants import (
     ADDED, CHANGED, INDENT, NESTED, REMOVED, UNCHANGED)
 
@@ -34,6 +36,8 @@ def stylish(diff, depth=1):
 def _get_value(item, depth=1):
     if isinstance(item, dict):
         return _render_array(item, depth)
+    if isinstance(item, bool) or item is None:
+        return json.dumps(item)
     return item
 
 

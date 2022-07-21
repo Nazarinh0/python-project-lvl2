@@ -33,8 +33,8 @@ def test_flat_json_no_format():
 
 
 def test_plain_format():
-    actual = generate_diff("tests/fixtures/nested_before.yml",
-                           "tests/fixtures/nested_after.yml",
+    actual = generate_diff("tests/fixtures/nested_before.json",
+                           "tests/fixtures/nested_after.json",
                            output_format="plain")
 
     assert actual == expected.PLAIN_FORMAT_RESULT
