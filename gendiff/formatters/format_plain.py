@@ -1,9 +1,9 @@
 from gendiff.tree_constants import (
     ADDED, CHANGED, NESTED, REMOVED, UNCHANGED, COMPLEX)
 
-ADDED_TEXT = "Property '{0}' was added with value: '{1}'"
+ADDED_TEXT = "Property '{0}' was added with value: {1}"
 REMOVED_TEXT = "Property '{0}' was removed"
-CHANGED_TEXT = "Property '{0}' was updated. From '{1}' to '{2}'"
+CHANGED_TEXT = "Property '{0}' was updated. From {1} to {2}"
 
 
 def plain(diff, parent=''):
@@ -29,8 +29,8 @@ def plain(diff, parent=''):
         elif node_type == CHANGED:
             plain_string = CHANGED_TEXT.format(
                 property_value,
-                get_changed_old(node_value),
-                get_changed_new(node_value),
+                get_changed_value(node_value, 'old_value'),
+                get_changed_value(node_value, 'new_value'),
             )
         elif node_type == UNCHANGED:
             continue
@@ -50,15 +50,9 @@ def get_value(node):
         return COMPLEX
     return str(value)
 
-def get_changed_old(node):
-    value = node.get('old_value')
-    if isinstance(value, dict):
-        return COMPLEX
-    return str(value)
 
-
-def get_changed_new(node):
-    value = node.get('new_value')
-    if isinstance(value, dict):
+def get_changed_value(node, value):
+    node_value = node.get(value)
+    if isinstance(node_value, dict):
         return COMPLEX
-    return str(value)
+    return str(node_value)
