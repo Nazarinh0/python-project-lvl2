@@ -1,3 +1,5 @@
+import json
+
 from gendiff.tree_constants import (
     ADDED, CHANGED, NESTED, REMOVED, UNCHANGED, COMPLEX)
 
@@ -19,7 +21,7 @@ def plain(diff, parent=''):
         if node_type == ADDED:
             plain_string = ADDED_TEXT.format(
                 property_value,
-                get_value(node_value)
+                get_value(node_value, 'value')
             )
         elif node_type == REMOVED:
             plain_string = REMOVED_TEXT.format(property_value)
@@ -29,8 +31,8 @@ def plain(diff, parent=''):
         elif node_type == CHANGED:
             plain_string = CHANGED_TEXT.format(
                 property_value,
-                get_changed_value(node_value, 'old_value'),
-                get_changed_value(node_value, 'new_value'),
+                get_value(node_value, 'old_value'),
+                get_value(node_value, 'new_value'),
             )
         elif node_type == UNCHANGED:
             continue
@@ -44,15 +46,10 @@ def get_property(parent, property_name):
     return f'{parent}.{property_name}'
 
 
-def get_value(node):
-    value = node.get('value')
+def get_value(node, value_name):
+    value = node.get(value_name)
     if isinstance(value, dict):
         return COMPLEX
-    return str(value)
-
-
-def get_changed_value(node, value):
-    node_value = node.get(value)
-    if isinstance(node_value, dict):
-        return COMPLEX
-    return str(node_value)
+    if isinstance(value, bool) or value is None:
+        return json.dumps(value)
+    return f"'{value}'"

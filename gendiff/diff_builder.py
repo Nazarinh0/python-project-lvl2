@@ -3,6 +3,7 @@ from gendiff.tree_constants import ADDED, CHANGED, NESTED, REMOVED, UNCHANGED
 
 def build_diff(before, after):
     keys = list(before.keys() | after. keys())
+    print({key: generate_node(key, before, after) for key in sorted(keys)})
     return {key: generate_node(key, before, after) for key in sorted(keys)}
 
 
@@ -40,10 +41,4 @@ def generate_node(key, before, after):
 
 
 def _get(value):
-    if value is True:
-        return 'true'
-    elif value is False:
-        return 'false'
-    elif value is None:
-        return 'null'
     return value
