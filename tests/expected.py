@@ -20,7 +20,7 @@ NESTED_RESULT = '''{
         }
         setting6: {
             doge: {
-              - wow: 
+              - wow: 1
               + wow: so much
             }
             key: value
@@ -50,7 +50,7 @@ NESTED_RESULT = '''{
         }
         fee: 100500
     }
-}''' #noqa W291
+}'''
 
 JSON_FORMAT_RESULT = '''{
   "follow": {
@@ -81,7 +81,7 @@ Property 'common.setting2' was removed
 Property 'common.setting3' was updated. From true to null
 Property 'common.setting4' was added with value: 'blah blah'
 Property 'common.setting5' was added with value: [complex value]
-Property 'common.setting6.doge.wow' was updated. From '' to 'so much'
+Property 'common.setting6.doge.wow' was updated. From 1 to 'so much'
 Property 'common.setting6.ops' was added with value: 'vops'
 Property 'group1.baz' was updated. From 'bas' to 'bars'
 Property 'group1.nest' was updated. From [complex value] to 'str'
