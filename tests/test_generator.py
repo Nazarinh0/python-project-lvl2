@@ -1,6 +1,7 @@
 from gendiff import generate_diff
 import tests.expected as expected
 
+
 def test_flat_json():
     actual = generate_diff("tests/fixtures/flat_before.json",
                            "tests/fixtures/flat_after.json",

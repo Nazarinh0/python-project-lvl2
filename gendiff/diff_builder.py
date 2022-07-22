@@ -6,6 +6,7 @@ def build_diff(before, after):
     # print({key: generate_node(key, before, after) for key in sorted(keys)})
     return {key: generate_node(key, before, after) for key in sorted(keys)}
 
+
 def generate_node(key, before, after):
     before_value = before.get(key)
     after_value = after.get(key)
