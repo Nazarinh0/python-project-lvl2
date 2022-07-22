@@ -6,21 +6,16 @@
 
 Description:
 
-Difference calculator - a program that determines the difference between two data structures. This is a popular task, for which there are many online services http://www.jsondiff.com/. A similar mechanism, for example, is used when outputting tests or when automatically tracking changes in configuration files.
+Difference generator - a program that finds the difference between two data structures. This is a popular task, for which there are many online services like http://www.jsondiff.com/. A similar mechanism, for example, is used when outputting tests or when automatically tracking changes in configuration files.
 
 Utility features:
 
-- Support for different input formats: yaml, json
-- Report generation in the form of plain text, stylish and json
+- Supported file extensions: yaml, json
+- Report available in the form of plain text, stylish and json
 
 Usage example:
-```python
-$ gendiff --format plain filepath1.json filepath2.yml
+[![asciicast](https://asciinema.org/a/WTYXgZzqETEXNe2EGJJ7vN5nx.svg)](https://asciinema.org/a/WTYXgZzqETEXNe2EGJJ7vN5nx)
 
-Setting "common.setting4" was added with value: False
-Setting "group1.baz" was updated. From 'bas' to 'bars'
-Section "group2" was removed
-```
 
 
 How to install:
@@ -33,7 +28,3 @@ How to install:
 How to use:
 - `gendiff -f[optional] <file_path> <file_path>`
 - for more `gendiff -h or --help`
-
-Use an application to find out the difference in two files with nested or flat structure, format = string, available formats are:
-stylish, plain, json
-!!ASCIINEMA HERE!!
