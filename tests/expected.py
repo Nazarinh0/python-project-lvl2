@@ -20,7 +20,7 @@ NESTED_RESULT = '''{
         }
         setting6: {
             doge: {
-              - wow:
+              - wow: 
               + wow: so much
             }
             key: value
@@ -50,7 +50,7 @@ NESTED_RESULT = '''{
         }
         fee: 100500
     }
-}'''
+}''' #noqa W291
 
 JSON_FORMAT_RESULT = '''{
   "follow": {
