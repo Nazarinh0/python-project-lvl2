@@ -52,4 +52,6 @@ def get_value(node, value_name):
         return COMPLEX
     if isinstance(value, bool) or value is None:
         return json.dumps(value)
+    if isinstance(value, int):
+        return value
     return f"'{value}'"
