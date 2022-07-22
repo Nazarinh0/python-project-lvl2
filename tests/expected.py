@@ -55,7 +55,7 @@ NESTED_RESULT = '''{
 JSON_FORMAT_RESULT = '''{
   "follow": {
     "type": "-",
-    "value": "false"
+    "value": false
   },
   "host": {
     "type": " ",
@@ -72,7 +72,7 @@ JSON_FORMAT_RESULT = '''{
   },
   "verbose": {
     "type": "+",
-    "value": "true"
+    "value": true
   }
 }'''
 

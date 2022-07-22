@@ -24,6 +24,7 @@ def test_json_format():
 
     assert actual == expected.JSON_FORMAT_RESULT
 
+
 def test_flat_json_no_format():
     actual = generate_diff("tests/fixtures/flat_before.json",
                            "tests/fixtures/flat_after.json",
