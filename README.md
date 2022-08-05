@@ -14,7 +14,7 @@ Utility features:
 - Report available in the form of plain text, stylish and json
 
 Usage example:
-[![asciicast](https://asciinema.org/a/WTYXgZzqETEXNe2EGJJ7vN5nx.svg)](https://asciinema.org/a/WTYXgZzqETEXNe2EGJJ7vN5nx)
+[![asciicast](https://asciinema.org/a/512806.svg)](https://asciinema.org/a/512806)
 
 
 
