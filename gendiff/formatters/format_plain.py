@@ -3,6 +3,7 @@ import json
 from gendiff.tree_constants import (
     ADDED, CHANGED, NESTED, REMOVED, UNCHANGED, COMPLEX)
 
+
 ADDED_TEXT = "Property '{0}' was added with value: {1}"
 REMOVED_TEXT = "Property '{0}' was removed"
 CHANGED_TEXT = "Property '{0}' was updated. From {1} to {2}"
